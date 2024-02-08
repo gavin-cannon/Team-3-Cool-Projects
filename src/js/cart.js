@@ -22,6 +22,7 @@ function renderCartContents() {
     const htmlItem = cartItemTemplate(cartItem);
     qs(".product-list").innerHTML = htmlItem;
   }
+  cartTotal()
 }
 
 function cartItemTemplate(item) {
@@ -83,3 +84,15 @@ setClick("click", (e) => {
     renderCartContents();
   }
 });
+
+function cartTotal() {
+  const cartItem = getLocalStorage("so-cart");
+  const totalElement = qs(".cart-footer");
+  if (cartItem.length != 0 || cartItem == null){
+    totalElement.classList.add("total-hidden")
+  }
+  else {totalElement.classList.remove("total-hidden")}
+  
+}
+
+
