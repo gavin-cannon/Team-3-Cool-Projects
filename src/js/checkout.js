@@ -20,12 +20,10 @@ document.forms["checkout"].addEventListener("submit", (e) => {
   const myForm = document.forms[0];
   const chk_status = myForm.checkValidity();
   myForm.reportValidity();
-  if(chk_status) 
-  checkoutProcess.checkout(e.target);
+  if (chk_status) checkoutProcess.checkout(e.target);
 
   // Redirect to success.html
   window.location.href = "success.html";
-//retrieve data from the checkoutProcess ('json' object with form data, 'res' has order confirmation and id)
+  //retrieve data from the checkoutProcess ('json' object with form data, 'res' has order confirmation and id)
   localStorage.clear();
-
 });
