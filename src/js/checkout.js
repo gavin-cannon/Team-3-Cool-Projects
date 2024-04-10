@@ -20,6 +20,7 @@ document.forms["checkout"].addEventListener("submit", (e) => {
   const myForm = document.forms[0];
   const chk_status = myForm.checkValidity();
   myForm.reportValidity();
+
   if (chk_status) {
     console.log(chk_status);
     checkoutProcess.checkout(e.target);
