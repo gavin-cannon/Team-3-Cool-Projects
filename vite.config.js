@@ -1,6 +1,7 @@
 import { resolve } from "path";
 // eslint-disable-next-line import/namespace
 import { defineConfig } from "vite";
+import { fileURLToPath } from "node:url";
 
 export default defineConfig({
   root: "src/",
@@ -17,6 +18,17 @@ export default defineConfig({
         orders: resolve(__dirname, "src/orders/index.html"),
         login: resolve(__dirname, "src/login/index.html"),
       },
+      external
+        : [
+          "jwt-decode",
+          fileURLToPath(
+              new URL(
+                  "src/js/auth.mjs",
+                import.meta.url
+              )
+            ),
+          /node_modules/
+        ]
     },
   },
   // Add the following line to use ESM (ECMAScript Module) build
